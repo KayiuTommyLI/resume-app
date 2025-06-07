@@ -5,6 +5,9 @@
 venv/
 /venv/
 
+/guidance/
+guidance/
+
 # Python cache
 __pycache__/
 *.pyc
