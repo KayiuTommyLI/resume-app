@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Application Assistant</title>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    <style>
+        .spinner-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.7); display: none; justify-content: center; align-items: center; z-index: 1000; }
+        .spinner { border: 8px solid #f3f3f3; border-top: 8px solid #3498db; border-radius: 50%; width: 60px; height: 60px; animation: spin 1.5s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        .accordion-button { background-color: var(--accent-bg); width: 100%; border: none; text-align: left; padding: 1rem; font-size: 1.1rem; cursor: pointer; border-bottom: 1px solid var(--border); }
+        .accordion-button:hover { background-color: var(--accent); color: var(--bg); }
+        .accordion-content { padding: 0 1rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .accordion-content .card { margin-top: 1rem; }
+        .accordion-header { display: flex; justify-content: space-between; align-items: center; }
+        .copy-button { margin-left: 1rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>AI Application Assistant</h1>
+        <p>Generate a complete application package based on your proven workflow.</p>
+    </header>
+
+    <main>
+        <div id="spinner-overlay" class="spinner-overlay"><div class="spinner"></div></div>
+
+        <form id="application-form">
+            <label for="jd-input">Job Description</label>
+            <textarea id="jd-input" rows="15" required></textarea>
+
+            <label for="resume-upload">Master Resume (e.g., Liku_Entire_Career.pdf)</label>
+            <input type="file" id="resume-upload" accept=".txt,.pdf" required>
+            
+            <label for="story-upload">Behavioral Stories (e.g., Liku_Story.pdf)</label>
+            <input type="file" id="story-upload" accept=".txt,.pdf" required>
+
+            <button type="submit">Generate Application</button>
+        </form>
+
+        <hr>
+        
+        <div id="result-container" style="display: none;">
+            <h2>Generated Application Package</h2>
+
+            <button class="accordion-button" data-target="analysis-content">Step 1: Job Analysis</button>
+            <div id="analysis-content" class="accordion-content">
+                <div id="analysis-output" class="card"></div>
+            </div>
+
+            <button class="accordion-button" data-target="resume-content">Step 2: Tailored Resume</button>
+            <div id="resume-content" class="accordion-content">
+                <div class="accordion-header">
+                    <h4>Resume</h4>
+                    <button class="copy-button" data-copy-target="resume-output">Copy Resume</button>
+                </div>
+                <div id="resume-output" class="card"></div>
+            </div>
+            
+            <button class="accordion-button" data-target="review-content">Step 2.5: Hiring Manager Review</button>
+            <div id="review-content" class="accordion-content">
+                 <div id="review-output" class="card"></div>
+            </div>
+
+            <button class="accordion-button" data-target="cover-letter-content">Step 3: Cover Letter</button>
+            <div id="cover-letter-content" class="accordion-content">
+                 <div class="accordion-header">
+                    <h4>Cover Letter</h4>
+                    <button class="copy-button" data-copy-target="cover-letter-output">Copy Cover Letter</button>
+                </div>
+                <div id="cover-letter-output" class="card"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
