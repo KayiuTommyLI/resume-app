@@ -5,8 +5,8 @@
 venv/
 /venv/
 
-/guidance/
 guidance/
+/guidance/
 
 # Python cache
 __pycache__/
