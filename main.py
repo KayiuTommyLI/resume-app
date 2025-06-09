@@ -107,7 +107,8 @@ async def call_gemini_api(prompt: str, is_json_output: bool = True, max_retries:
     for attempt in range(max_retries):
         try:
             print(f"--- Calling Gemini API... (JSON Output: {is_json_output}) ---")
-            model = genai.GenerativeModel('gemma-3-27b-it')
+            # model = genai.GenerativeModel('gemma-3-27b-it')
+            model = genai.GenerativeModel('gemini-1.5-flash-8b')
             response = model.generate_content(prompt)
             
             if is_json_output:
