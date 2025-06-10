@@ -1,6 +1,6 @@
 # AI Application Assistant
 
-An AI-powered web application that generates tailored resumes and cover letters using FastAPI and Google Gemini AI. This tool analyzes job descriptions, extracts keywords, and creates professional application packages optimized for ATS systems.
+An AI-powered web application that customize tailored resumes and cover letters using FastAPI and Google Gemini AI. This tool analyzes job descriptions, extracts keywords, and creates professional application packages optimized for ATS systems.
 
 ## 🌟 Features
 
